@@ -1,7 +1,18 @@
-import type { NextPage } from 'next';
+import { NextPage } from 'next';
+import HeroSection from '../components/HomePageSections/HeroSection';
 
 const Home: NextPage = () => {
-    return <h1>Hello World!</h1>;
+    return (
+        <>
+            <header></header>
+
+            <main>
+                <HeroSection />
+            </main>
+
+            <footer></footer>
+        </>
+    );
 };
 
 export default Home;
