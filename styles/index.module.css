@@ -1,0 +1,18 @@
+.nav {
+    height: 80px;
+    width: 100%;
+    background-color: rgb(20, 20, 20);
+}
+
+.logoContainer div img {
+    width: 200px !important;
+    height: 200px !important;
+    max-width: 500px !important;
+    max-height: 500px !important;
+}
+
+@media screen and (max-width: 600px) {
+    .logoContainer div img {
+        width: 150px !important;
+    }
+}
