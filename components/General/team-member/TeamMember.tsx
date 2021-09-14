@@ -10,8 +10,8 @@ function TeamMember({ image, name, role }: TeamMemberType) {
                 <Image src={image} alt="team member" width="170px" height="170px" />
             </div>
             <div>
-                <p>{name}</p>
-                <p>{role}</p>
+                <p className="text-xl font-bold">{name}</p>
+                <p className="text-lg text-accent2">{role}</p>
             </div>
         </div>
     );
