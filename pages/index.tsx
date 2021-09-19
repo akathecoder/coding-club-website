@@ -1,16 +1,12 @@
 import { NextPage } from 'next';
-import HeroSection from '../components/HomePageSections/HeroSection';
+import Hero from '../components/Sections/Hero/Hero';
+import OurTeam from '../components/Sections/Our-Team/our-team';
 
 const Home: NextPage = () => {
     return (
         <>
-            <header></header>
-
-            <main>
-                <HeroSection />
-            </main>
-
-            <footer></footer>
+            <Hero />
+            <OurTeam />
         </>
     );
 };
