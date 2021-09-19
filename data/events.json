@@ -1,0 +1,51 @@
+{
+    "section": "Events",
+    "route": "/events",
+    "events": [
+        {
+            "date": "20-22 Sep",
+            "title": "Web development Workshop: Building a server in Go",
+            "timeFrom": "12:00",
+            "timeTo": "1:30",
+            "venue": "Remote",
+            "description": "Learn to develop a backend server right from ground up, and deploy it.",
+            "link": null
+        },
+        {
+            "date": "Wednesday 28 Sep",
+            "title": "UX Crunch at Home: Service Design",
+            "timeFrom": "2:00",
+            "timeTo": "3:00",
+            "venue": "Remote",
+            "description": "Learn to design accessible UIs",
+            "link": null
+        },
+        {
+            "date": "20-24 Sep",
+            "title": "2021 AIGA Design Conference - A brief history of now",
+            "timeFrom": "3:25",
+            "timeTo": "4:30",
+            "venue": "Mars Labs, Jaipur",
+            "description": "The AIGA Design Conference is a different experience; we push the practice forward by asking the provocative questions and challenging designers to think about the future.",
+            "link": null
+        },
+        {
+            "date": "20-22 Sep",
+            "title": "Web development Workshop: Building a server in Go",
+            "timeFrom": "12:00",
+            "timeTo": "1:30",
+            "venue": "Remote",
+            "description": "Learn to develop a backend server right from ground up, and deploy it.",
+            "link": null
+        },
+        {
+            "date": "Wednesday 28 Sep",
+            "title": "UX Crunch at Home: Service Design",
+            "timeFrom": "2:00",
+            "timeTo": "3:00",
+            "venue": "Remote",
+            "description": "Learn to design accessible UIs",
+            "link": null
+        }
+    ]
+}
