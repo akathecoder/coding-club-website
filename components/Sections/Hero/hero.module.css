@@ -1,5 +1,5 @@
 .homeContainer {
-    padding-top: 70px;
+    height: calc(100% - 70px);
 }
 
 .logoContainer div img {
