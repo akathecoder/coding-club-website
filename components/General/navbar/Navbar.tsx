@@ -1,20 +1,43 @@
 import React from 'react';
+import { useMediaQuery } from '../../../hooks/useMediaQuery';
 import styles from './navbar.module.css';
 
 interface NavbarProps {}
 
-const Navbar: React.FC<NavbarProps> = () => {
+const NavLinksList: React.FC = () => {
+    const smallerThan600px = useMediaQuery('(max-width: 600px)');
+
+    const links = [
+        { name: 'About', link: '!#' },
+        { name: 'Events', link: '/events' },
+        { name: 'Gallery', link: '!#' },
+        { name: 'Our Team', link: '!#' },
+        { name: 'Resources', link: '!#' },
+        { name: 'Others', link: '!#' },
+    ];
+
     return (
-        <nav className={styles.nav}>
-            <div className={`flex justify-center items-center h-full ${styles.navLinks}`}>
-                <ul className="flex">
-                    <li className="mx-3 text-xl">About</li>
-                    <li className="mx-3 text-xl">Events</li>
-                    <li className="mx-3 text-xl">Gallery</li>
-                    <li className="mx-3 text-xl">Our Team</li>
-                    <li className="mx-3 text-xl">Resources</li>
-                    <li className="mx-3 text-xl">Others</li>
-                </ul>
+        <ul className={`flex ${smallerThan600px ? 'flex-col items-center' : ''}`}>
+            {links.map(({ name }, idx) => (
+                <li key={idx} className="mx-3 text-xl mb-2">
+                    {name}
+                </li>
+            ))}
+        </ul>
+    );
+};
+
+const Navbar: React.FC<NavbarProps> = () => {
+    const smallerThan600px = useMediaQuery('(max-width: 600px)');
+
+    return (
+        <nav className={`${styles.nav} bg-gray`}>
+            <div
+                className={`flex justify-center items-center w-full ${styles.navLinks} ${
+                    smallerThan600px ? 'absolute h-auto bg-gray top-16 py-4' : 'h-full '
+                }`}
+            >
+                <NavLinksList />
             </div>
         </nav>
     );
