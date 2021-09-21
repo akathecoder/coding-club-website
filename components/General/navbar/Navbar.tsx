@@ -43,9 +43,7 @@ const Navbar: React.FC<NavbarProps> = () => {
                 <NavLinksList />
             </div>
 
-            <Portal selector="backdrop">
-                <div>hi</div>
-            </Portal>
+            <Portal selector="backdrop">{/* <div className="absolute h-screen w-screen bg-gray">hi</div> */}</Portal>
         </nav>
     );
 };
