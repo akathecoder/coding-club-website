@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useMediaQuery } from '../../../hooks/useMediaQuery';
+import Portal from '../portal/Portal';
 import styles from './navbar.module.css';
 
 interface NavbarProps {}
@@ -29,9 +30,11 @@ const NavLinksList: React.FC = () => {
 
 const Navbar: React.FC<NavbarProps> = () => {
     const smallerThan600px = useMediaQuery('(max-width: 600px)');
+    const [open, setOpen] = useState<boolean>(false);
 
     return (
         <nav className={`${styles.nav} bg-gray`}>
+            {open && smallerThan600px && <div>x</div>}
             <div
                 className={`flex justify-center items-center w-full ${styles.navLinks} ${
                     smallerThan600px ? 'absolute h-auto bg-gray top-16 py-4' : 'h-full '
@@ -39,6 +42,10 @@ const Navbar: React.FC<NavbarProps> = () => {
             >
                 <NavLinksList />
             </div>
+
+            <Portal selector="backdrop">
+                <div>hi</div>
+            </Portal>
         </nav>
     );
 };
