@@ -7,7 +7,7 @@ function TeamMember({ image, name, role }: TeamMemberType) {
     return (
         <div>
             <div className={styles.image}>
-                <Image src={image} alt="team member" width="170px" height="170px" />
+                <Image src={image} alt="team member" width="200px" height="200px" />
             </div>
             <div>
                 <p className="text-xl font-bold">{name}</p>
