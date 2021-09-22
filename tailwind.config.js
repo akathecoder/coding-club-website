@@ -18,6 +18,8 @@ module.exports = {
                 accent7: '#333333',
                 accent8: '#111111',
             },
+            animation: {},
+            keyframes: {},
         },
     },
     important: true,
