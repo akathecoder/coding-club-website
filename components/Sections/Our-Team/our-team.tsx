@@ -7,6 +7,8 @@ function OurTeam() {
     const { data, error } = useFetch<OurTeamResponse>('/our-team');
     if (error) return <></>;
 
+    // added
+
     return (
         <div className="bg-background text-center pb-32 border-t border-accent6">
             <h1 className="text-6xl my-10">Our Team</h1>
