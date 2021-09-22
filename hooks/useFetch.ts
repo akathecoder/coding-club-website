@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { __prod__ } from '../constants';
 
 export function useFetch<T extends Record<string, any>>(api: string) {
     /**
@@ -7,7 +8,9 @@ export function useFetch<T extends Record<string, any>>(api: string) {
      * we use the '/' character to determine if its from our api or not
      */
     if (api[0] === '/') {
-        api = `http://localhost:3000/api${api}`;
+        api = __prod__
+            ? `https://coding-club-website-1ptq428vw-sparshagarwal25.vercel.app/api/${api}`
+            : `http://localhost:3000/api${api}`;
     }
 
     // we store the data required in component in useState hook
