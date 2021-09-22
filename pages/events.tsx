@@ -1,15 +1,16 @@
+import fs from 'fs';
 import Event from '../components/General/event/Event';
 import styles from '../styles/events.module.css';
-import { EventsResponse } from '../types';
+import { EventsData } from '../types';
 
-function Events({ data }: EventsResponse) {
+function Events({ events }: EventsData) {
     return (
         <section className={`bg-background flex items-center flex-col ${styles.eventsContainer}`}>
             <header className="py-10">
                 <h1 className="text-6xl">Events</h1>
             </header>
             <div className="grid grid-cols-2 gap-20 mt-5">
-                {data.events.map((event, idx) => (
+                {events.map((event, idx) => (
                     <Event key={idx} {...event} />
                 ))}
             </div>
@@ -18,15 +19,16 @@ function Events({ data }: EventsResponse) {
 }
 
 export async function getStaticProps() {
-    const eventsRespose = (await fetchEventsData()) as EventsResponse;
+    const eventsRespose = fetchEventsData() as EventsData;
 
     return {
         props: eventsRespose,
     };
 
-    async function fetchEventsData() {
-        const res = await fetch('http://localhost:3000/api/events');
-        return await res.json();
+    function fetchEventsData() {
+        const ourTeamFile = fs.readFileSync('data/events.json', { encoding: 'utf-8' });
+        const ourTeamData = JSON.parse(ourTeamFile);
+        return ourTeamData;
     }
 }
 
