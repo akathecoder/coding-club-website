@@ -2,3 +2,9 @@
     border-radius: 100%;
     border: 5px solid #845ef7 !important;
 }
+
+@media screen and (max-width: 1280px) {
+    .image div img {
+        width: 170px;
+    }
+}
