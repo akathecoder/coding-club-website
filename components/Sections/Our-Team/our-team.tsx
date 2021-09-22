@@ -8,9 +8,9 @@ function OurTeam() {
     if (error) return <></>;
 
     return (
-        <div className="bg-background text-center px-20 py-3 pb-20 border-t border-accent6">
-            <h1 className="text-6xl my-8">Our Team</h1>
-            <div className="grid grid-cols-2 gap-8 mt-20 max-w-7xl m-auto sm:grid-cols-3 lg:grid-cols-4">
+        <div className="bg-background text-center pb-32 border-t border-accent6">
+            <h1 className="text-6xl my-10">Our Team</h1>
+            <div className="grid grid-cols-4 gap-14 mt-20 max-w-7xl mx-auto">
                 {data && data.members.map((member, idx) => <TeamMember {...member} key={idx} />)}
             </div>
         </div>

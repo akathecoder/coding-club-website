@@ -5,7 +5,7 @@ import styles from './hero.module.css';
 
 function Hero() {
     return (
-        <section className={`h-screen flex flex-col justify-center bg-background px-3 ${styles.homeContainer}`}>
+        <section className={`flex flex-col justify-center bg-background px-3 ${styles.homeContainer}`}>
             <figure className={`text-center my-5 ${styles.logoContainer}`}>
                 <Image src={Logo} alt="coding club logo" aria-readonly="true" />
             </figure>

@@ -1,3 +1,5 @@
+type ResponseError = string | null;
+
 export interface TeamMember {
     name: string;
     role: string;
@@ -12,5 +14,26 @@ export interface OurTeam {
 
 export interface OurTeamResponse {
     data: OurTeam;
-    error: string | null;
+    error: ResponseError;
+}
+
+export interface Event {
+    date: string;
+    title: string;
+    timeFrom: string;
+    timeTo: string;
+    venue: string;
+    description: string;
+    link: string | null;
+}
+
+export interface EventsData {
+    section: string;
+    route: string;
+    events: Array<Event>;
+}
+
+export interface EventsResponse {
+    data: EventsData;
+    error: ResponseError;
 }
