@@ -8,7 +8,7 @@ function Events({ data }: EventsResponse) {
             <header className="py-10">
                 <h1 className="text-6xl">Events</h1>
             </header>
-            <div className="grid grid-cols-2 gap-20 mt-5">
+            <div className="grid grid-cols-1 gap-20 mt-5 px-10 s-800:grid-cols-2">
                 {data.events.map((event, idx) => (
                     <Event key={idx} {...event} />
                 ))}
