@@ -13,13 +13,13 @@ const Home: React.FC<IOurTeam> = (props) => {
 };
 
 export async function getStaticProps() {
-    const eventsRespose = fetchEventsData() as IOurTeam;
+    const ourTeamResponse = fetchOurData() as IOurTeam;
 
     return {
-        props: eventsRespose,
+        props: ourTeamResponse,
     };
 
-    function fetchEventsData() {
+    function fetchOurData() {
         const ourTeamFile = fs.readFileSync('data/ourTeam.json', { encoding: 'utf-8' });
         const ourTeamData = JSON.parse(ourTeamFile);
         return ourTeamData;

@@ -26,9 +26,9 @@ export async function getStaticProps() {
     };
 
     function fetchEventsData() {
-        const ourTeamFile = fs.readFileSync('data/events.json', { encoding: 'utf-8' });
-        const ourTeamData = JSON.parse(ourTeamFile);
-        return ourTeamData;
+        const eventsFile = fs.readFileSync('data/events.json', { encoding: 'utf-8' });
+        const eventsData = JSON.parse(eventsFile);
+        return eventsData;
     }
 }
 
