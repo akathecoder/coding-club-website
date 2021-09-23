@@ -1,7 +1,7 @@
 import React from 'react';
 import { OurTeam as IOurTeam } from '../../../types';
 import TeamMember from '../../General/team-member/TeamMember';
-
+//
 function OurTeam({ members }: IOurTeam) {
     return (
         <div className="bg-background text-center px-10 py-3 pb-20 border-t border-accent6 sm:px-20">
