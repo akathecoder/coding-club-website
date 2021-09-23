@@ -2,6 +2,12 @@
     height: calc(100% - 70px);
 }
 
+@media only screen and (max-width: 600px) {
+    .homeContainer {
+        height: calc(100% - 50px);
+    }
+}
+
 .logoContainer div img {
     width: 200px !important;
     height: 200px !important;

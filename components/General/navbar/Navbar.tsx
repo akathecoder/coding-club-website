@@ -53,7 +53,7 @@ const Navbar: React.FC<NavbarProps> = () => {
             )}
             <div
                 className={`flex justify-center items-center w-full ${styles.navLinks} ${
-                    smallerThan600px ? 'absolute h-auto bg-gray top-16' : 'h-full '
+                    smallerThan600px ? 'absolute h-auto bg-gray top-12' : 'h-full '
                 }`}
             >
                 {smallerThan600px && open ? (
