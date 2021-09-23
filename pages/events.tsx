@@ -7,9 +7,9 @@ function Events({ events }: EventsData) {
     return (
         <section className={`bg-background flex items-center flex-col ${styles.eventsContainer}`}>
             <header className="py-10">
-                <h1 className="text-6xl">Events</h1>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl">Events</h1>
             </header>
-            <div className="grid grid-cols-1 gap-20 mt-5 px-10 s-800:grid-cols-2">
+            <div className="grid grid-cols-1 gap-20 mt-5 px-7 s-800:grid-cols-2">
                 {events.map((event, idx) => (
                     <Event key={idx} {...event} />
                 ))}
