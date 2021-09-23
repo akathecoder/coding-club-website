@@ -10,23 +10,23 @@ function Hero() {
                 <Image src={Logo} alt="coding club logo" aria-readonly="true" />
             </figure>
             <h1
-                className="text-white font-bold text-5xl text-center
-                    lg:text-6xl xl:text-8xl"
+                className="text-white font-bold text-4xl text-center
+                    sm:text-5xl lg:text-6xl xl:text-8xl"
             >
                 JKLU Coding Club
             </h1>
-            <p className="text-center text-2xl my-3 lg:text-3xl xl:text-4xl">
+            <p className="text-center text-xl my-3 sm:text-2xl lg:text-3xl xl:text-4xl">
                 Join the biggest student community at{' '}
                 <b className="whitespace-nowrap text-brand">JK Lakshmipat University</b>
             </p>
             <div className={`text-center mt-12`}>
-                <div className="bg-accent7 email-container w-11/12 container max-w-2xl mx-auto rounded-xl py-4 px-5 flex justify-between space-x-4 lg:py-5 lg:px-10">
+                <div className="bg-accent7 email-container w-11/12 container max-w-2xl mx-auto rounded-xl py-3 px-3 flex justify-between space-x-4 sm:py-4 sm:px-5 lg:py-5 lg:px-10">
                     <input
                         type="text"
-                        className="bg-accent7 text-xl container lg:text-2xl"
+                        className="bg-accent7 text-lg container sm:text-xl lg:text-2xl"
                         placeholder="Enter your email"
                     />
-                    <button className="bg-brand px-7 py-2 text-md rounded-md lg:text-lg lg:px-10 lg:py-3">
+                    <button className="bg-brand px-5 py-2 text-md rounded-md sm:px-7 lg:text-lg lg:px-10 lg:py-3">
                         Register
                     </button>
                 </div>
