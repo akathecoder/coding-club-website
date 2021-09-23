@@ -47,8 +47,8 @@ const Navbar: React.FC<NavbarProps> = () => {
             } ${styles.nav} bg-gray`}
         >
             {smallerThan600px && (
-                <div className="px-6 cursor-pointer">
-                    <HamMenu onClick={() => setOpen((o) => !o)} />
+                <div className="px-4 cursor-pointer h-full flex justify-center items-center mx-3">
+                    <HamMenu onClick={() => setOpen((o) => !o)} open={open} />
                 </div>
             )}
             <div
