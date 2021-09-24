@@ -4,10 +4,10 @@ import { useRouter } from 'next/router';
 function Event(event: EventType) {
     const router = useRouter();
     return (
-        <div style={{ width: '400px' }} className="mb-10">
-            <p className="text-lg">{event.date}</p>
-            <h1 className="text-3xl font-bold underline">{event.title}</h1>
-            <div className="flex text-lg my-1">
+        <div className="mb-5 w-full max-w-sm lg:mb-10 lg:w-event-base">
+            <p className="text-base sm:text-lg">{event.date}</p>
+            <h1 className="text-xl lg:text-3xl font-bold underline">{event.title}</h1>
+            <div className="flex text-sm sm:text-base lg:text-lg my-1">
                 <p>
                     {event.timeFrom} - {event.timeTo}
                 </p>

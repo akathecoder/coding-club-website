@@ -39,45 +39,48 @@ const Navbar: React.FC<NavbarProps> = () => {
     }, [smallerThan600px]);
 
     return (
-        <nav
-            className={`${
-                smallerThan600px && open
-                    ? 'z-20 left-0 right-0 fixed flex justify-end items-center'
-                    : 'flex justify-end items-center'
-            } ${styles.nav} bg-gray`}
-        >
-            {smallerThan600px && (
-                <div className="px-6 cursor-pointer">
-                    <HamMenu onClick={() => setOpen((o) => !o)} />
-                </div>
-            )}
-            <div
-                className={`flex justify-center items-center w-full ${styles.navLinks} ${
-                    smallerThan600px ? 'absolute h-auto bg-gray top-16' : 'h-full '
-                }`}
+        <Fragment>
+            <div style={{ width: '100%', height: '70px' }}></div>
+            <nav
+                className={`fixed w-full z-30 top-0 ${
+                    smallerThan600px && open
+                        ? 'z-20 left-0 right-0 fixed flex justify-end items-center'
+                        : 'flex justify-end items-center'
+                } ${styles.nav} bg-gray`}
             >
-                {smallerThan600px && open ? (
-                    <NavLinksList smallerThan600px={smallerThan600px} />
-                ) : (
-                    <Fragment>
-                        {!smallerThan600px ? (
-                            <NavLinksList smallerThan600px={smallerThan600px} />
-                        ) : (
-                            <Fragment></Fragment>
-                        )}
-                    </Fragment>
+                {smallerThan600px && (
+                    <div className="px-4 cursor-pointer h-full flex justify-center items-center mx-3">
+                        <HamMenu onClick={() => setOpen((o) => !o)} open={open} />
+                    </div>
                 )}
-            </div>
+                <div
+                    className={`flex justify-center items-center w-full ${styles.navLinks} ${
+                        smallerThan600px ? 'absolute h-auto bg-gray top-12' : 'h-full '
+                    }`}
+                >
+                    {smallerThan600px && open ? (
+                        <NavLinksList smallerThan600px={smallerThan600px} />
+                    ) : (
+                        <Fragment>
+                            {!smallerThan600px ? (
+                                <NavLinksList smallerThan600px={smallerThan600px} />
+                            ) : (
+                                <Fragment></Fragment>
+                            )}
+                        </Fragment>
+                    )}
+                </div>
 
-            <Portal selector="backdrop">
-                {open && smallerThan600px && (
-                    <div
-                        className="absolute w-full h-full bg-gray left-0 top-0 right-0 z-10 opacity-90"
-                        onClick={() => setOpen(false)}
-                    ></div>
-                )}
-            </Portal>
-        </nav>
+                <Portal selector="backdrop">
+                    {open && smallerThan600px && (
+                        <div
+                            className="absolute w-full h-full bg-gray left-0 top-0 right-0 z-10 opacity-90"
+                            onClick={() => setOpen(false)}
+                        ></div>
+                    )}
+                </Portal>
+            </nav>
+        </Fragment>
     );
 };
 

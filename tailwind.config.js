@@ -18,8 +18,15 @@ module.exports = {
                 accent7: '#333333',
                 accent8: '#111111',
             },
-            animation: {},
-            keyframes: {},
+            // used for box size of event-item container
+            width: {
+                'event-base': '400px',
+                'event-sm': '350px',
+            },
+            // s-800, will be active for screen width more than 800px
+            screens: {
+                's-800': '800px',
+            },
         },
     },
     important: true,
