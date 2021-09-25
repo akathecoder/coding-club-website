@@ -26,6 +26,8 @@ module.exports = {
             // s-800, will be active for screen width more than 800px
             screens: {
                 's-800': '800px',
+                'projects-3': '1400px',
+                '3xl': '1600px',
             },
         },
     },
