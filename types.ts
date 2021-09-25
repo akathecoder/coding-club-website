@@ -37,3 +37,16 @@ export interface EventsResponse {
     data: EventsData;
     error: ResponseError;
 }
+
+export interface Project {
+    title: string;
+    description: string;
+    image: string;
+    link: string;
+}
+
+export interface ProjectsData {
+    section: string;
+    route: string;
+    projects: Array<Project>;
+}

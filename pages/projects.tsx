@@ -1,7 +1,8 @@
-import { NextPage } from 'next';
+import fs from 'fs';
 import { ProjectItem } from '../components/General/ProjectItem/ProjectItem';
+import { ProjectsData } from '../types';
 
-const projects: NextPage = () => {
+const Projects: React.FC<ProjectsData> = (props) => {
     return (
         <>
             <main className="bg-background min-w-full min-h-screen text-accent1">
@@ -11,12 +12,9 @@ const projects: NextPage = () => {
                         Projects created by members of <span className="whitespace-nowrap">Coding Club JKLU</span>
                     </h2>
                     <section className="mt-4 grid md:grid-cols-2 md:px-0 projects-3:grid-cols-3 3xl:px-32">
-                        <ProjectItem />
-                        <ProjectItem />
-                        <ProjectItem />
-                        <ProjectItem />
-                        <ProjectItem />
-                        <ProjectItem />
+                        {props.projects.map((project, idx) => (
+                            <ProjectItem key={idx} {...project} />
+                        ))}
                     </section>
                 </section>
             </main>
@@ -24,4 +22,18 @@ const projects: NextPage = () => {
     );
 };
 
-export default projects;
+export async function getStaticProps() {
+    const projectsResponse = fetchOurData() as ProjectsData;
+
+    return {
+        props: projectsResponse,
+    };
+
+    function fetchOurData() {
+        const projectsFile = fs.readFileSync('data/projects.json', { encoding: 'utf-8' });
+        const projectsFileData = JSON.parse(projectsFile);
+        return projectsFileData;
+    }
+}
+
+export default Projects;
