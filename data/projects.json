@@ -1,0 +1,42 @@
+{
+    "section": "Projects",
+    "route": "/projects",
+    "projects": [
+        {
+            "title": "Project Title",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate numquam ex ipsam quibusdam laborum vitae aut quod explicabo provident veniam.",
+            "image": "https://source.unsplash.com/random/800x600",
+            "link": "!#"
+        },
+        {
+            "title": "Project Title",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate numquam ex ipsam quibusdam laborum vitae aut quod explicabo provident veniam.",
+            "image": "https://source.unsplash.com/random/800x600",
+            "link": "!#"
+        },
+        {
+            "title": "Project Title",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate numquam ex ipsam quibusdam laborum vitae aut quod explicabo provident veniam.",
+            "image": "https://source.unsplash.com/random/800x600",
+            "link": "!#"
+        },
+        {
+            "title": "Project Title",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate numquam ex ipsam quibusdam laborum vitae aut quod explicabo provident veniam.",
+            "image": "https://source.unsplash.com/random/800x600",
+            "link": "!#"
+        },
+        {
+            "title": "Project Title",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate numquam ex ipsam quibusdam laborum vitae aut quod explicabo provident veniam.",
+            "image": "https://source.unsplash.com/random/800x600",
+            "link": "!#"
+        },
+        {
+            "title": "Project Title",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate numquam ex ipsam quibusdam laborum vitae aut quod explicabo provident veniam.",
+            "image": "https://source.unsplash.com/random/800x600",
+            "link": "!#"
+        }
+    ]
+}
