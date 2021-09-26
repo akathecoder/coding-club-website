@@ -23,6 +23,9 @@ module.exports = {
                 'event-base': '400px',
                 'event-sm': '350px',
             },
+            height: {
+                'content-section-mobile': 'calc(100% - 50px)',
+            },
             // s-800, will be active for screen width more than 800px
             screens: {
                 's-800': '800px',
