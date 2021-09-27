@@ -18,9 +18,9 @@ function Hero() {
     return (
         <section
             ref={ref}
-            id="home"
             className={`flex flex-col justify-center relative bg-background px-3 ${styles.homeContainer}`}
         >
+            <div style={{ height: 70, top: -140 }} id="home" className="absolute left-0 w-full"></div>
             <figure className={`text-center my-5 ${styles.logoContainer}`}>
                 <Image src={Logo} alt="coding club logo" aria-readonly="true" />
             </figure>

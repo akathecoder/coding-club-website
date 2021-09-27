@@ -5,7 +5,7 @@ import { OurTeam as IOurTeam } from '../../../types';
 import TeamMember from '../../General/team-member/TeamMember';
 
 function OurTeam({ members }: IOurTeam) {
-    const { ref, inView } = useInView({ threshold: 0.8 });
+    const { ref, inView } = useInView({ threshold: 0.7 });
     const setSection = useStore((s) => s.setVisibleSection);
 
     useEffect(() => {

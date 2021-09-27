@@ -20,7 +20,6 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
         { name: 'Home', link: '/', section: true, to: 'home' },
         { name: 'About', link: '/', section: true, to: 'about' },
         { name: 'Events', link: '/events', section: false },
-        { name: 'Gallery', link: '/gallery', section: false },
         { name: 'Our Team', link: '/', section: true, to: 'our-team' },
         { name: 'Projects', link: '/projects', section: false },
         { name: 'Others', link: '/others', section: false },
@@ -49,7 +48,7 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
                 {links.map(({ name, link, section, to }, idx) => (
                     <button key={idx} onClick={onClick}>
                         <li
-                            className={`mx-3 text-xl mb-1 relative ${
+                            className={`mx-3 text-xl relative ${
                                 showUnderline(link, name) ? 'border-b-4 border-brand' : ''
                             }`}
                         >
@@ -111,7 +110,9 @@ const Navbar: React.FC<NavbarProps> = () => {
                         {open ? <NavLinksList smallerThan600px onClick={closeNavLinks} /> : <Fragment></Fragment>}
                     </Fragment>
                 ) : (
-                    <NavLinksList />
+                    <div className="flex justify-center w-full">
+                        <NavLinksList />
+                    </div>
                 )}
 
                 <Portal selector="backdrop">
