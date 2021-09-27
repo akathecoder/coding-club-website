@@ -7,6 +7,8 @@ import useStore from '../../../store';
 import HamMenu from '../ham-menu/HamMenu';
 import Portal from '../portal/Portal';
 import styles from './navbar.module.css';
+import clubLogo from '../../../assets/images/logo.svg';
+import Image from 'next/image';
 
 interface NavbarProps {}
 
@@ -16,6 +18,8 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
 }) => {
     const router = useRouter();
     const visible = useStore((s) => s.visible);
+    const setVisibleSection = useStore((s) => s.setVisibleSection);
+
     const links = [
         { name: 'Home', link: '/', section: true, to: 'home' },
         { name: 'About', link: '/', section: true, to: 'about' },
@@ -35,16 +39,26 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
         }
     }
 
-    async function goToLink(link: string, to: string = '') {
+    async function goToLink(link: string, to: string = '', name: string) {
         if (router.route !== '/') {
             await router.push(link);
         }
         scroller.scrollTo(to, { duration: 800, smooth: 'easeInOutQuint' });
+        setVisibleSection(name);
     }
 
     return (
-        <div className={`w-full ${smallerThan600px ? 'absolute py-5 bg-gray' : ''} ${styles.navLinks}`}>
-            <ul className={`flex ${smallerThan600px ? 'flex-col items-center' : 'justify-center'}`}>
+        <div
+            className={`w-full flex justify-between items-center px-10 ${
+                smallerThan600px ? 'absolute py-5 bg-gray' : ''
+            } ${styles.navLinks}`}
+        >
+            {(visible === 'About' || visible === 'Our Team') && !smallerThan600px && (
+                <div className="flex items-center justify-center">
+                    <Image src={clubLogo} alt="university" width="50px" height="50px" />
+                </div>
+            )}
+            <ul className={`flex m-auto ${smallerThan600px ? 'flex-col items-center' : 'justify-center'}`}>
                 {links.map(({ name, link, section, to }, idx) => (
                     <button key={idx} onClick={onClick}>
                         <li
@@ -53,7 +67,7 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
                             }`}
                         >
                             {section ? (
-                                <a onClick={async () => await goToLink(link, to)}>{name}</a>
+                                <a onClick={async () => await goToLink(link, to, name)}>{name}</a>
                             ) : (
                                 <Link href={link}>{name}</Link>
                             )}
@@ -61,6 +75,12 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
                     </button>
                 ))}
             </ul>
+
+            {(visible === 'About' || visible === 'Our Team') && !smallerThan600px && (
+                <div>
+                    <button className="bg-brand px-4 py-1 rounded-md">Join Club</button>
+                </div>
+            )}
         </div>
     );
 };
@@ -68,6 +88,7 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
 const Navbar: React.FC<NavbarProps> = () => {
     const smallerThan600px = useMediaQuery('(max-width: 600px)');
     const [open, setOpen] = useState<boolean>(false);
+    const visible = useStore((s) => s.visible);
 
     function closeNavLinks() {
         setOpen(false);
@@ -100,8 +121,19 @@ const Navbar: React.FC<NavbarProps> = () => {
                 } ${styles.nav} bg-gray`}
             >
                 {smallerThan600px && (
-                    <div className="px-4 cursor-pointer h-full flex justify-center items-center mx-3">
-                        <HamMenu onClick={toggleNavbar} open={open} />
+                    <div className="px-4 w-full flex justify-between items-center">
+                        {visible !== 'Home' && smallerThan600px ? (
+                            <div>
+                                <button className="bg-brand px-4 py-1 rounded-md">Join Club</button>
+                            </div>
+                        ) : (
+                            <Fragment>{smallerThan600px ? <div></div> : <Fragment></Fragment>}</Fragment>
+                        )}
+                        {smallerThan600px && (
+                            <div className="cursor-pointer h-full flex justify-center items-center mx-3">
+                                <HamMenu onClick={toggleNavbar} open={open} />
+                            </div>
+                        )}
                     </div>
                 )}
 
@@ -110,16 +142,15 @@ const Navbar: React.FC<NavbarProps> = () => {
                         {open ? <NavLinksList smallerThan600px onClick={closeNavLinks} /> : <Fragment></Fragment>}
                     </Fragment>
                 ) : (
-                    <div className="flex justify-center w-full">
-                        <NavLinksList />
-                    </div>
+                    <NavLinksList />
                 )}
 
                 <Portal selector="backdrop">
                     {open && smallerThan600px && (
                         <div
-                            className="absolute w-full h-full bg-gray left-0 top-0 right-0 z-10 opacity-90"
+                            className="absolute w-full h-screen bg-gray left-0 right-0 z-10 opacity-90"
                             onClick={closeNavLinks}
+                            style={{ top: window.scrollY }}
                         ></div>
                     )}
                 </Portal>
