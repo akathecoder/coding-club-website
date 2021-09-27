@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import useStore from '../../../store';
 import styles from './about.module.css';
 
 export function About() {
+    const { ref, inView } = useInView({ threshold: 0.9 });
+    const setSection = useStore((s) => s.setVisibleSection);
+
+    useEffect(() => {
+        if (inView) {
+            setSection('About');
+        }
+    }, [inView, setSection]);
+
     return (
-        <section id="about" className={`border-t border-accent6 px-10 md:px-20 ${styles.aboutSection}`}>
+        <section ref={ref} className={`border-t relative border-accent6 px-10 md:px-20 ${styles.aboutSection}`}>
             <h1 className="my-5 text-4xl text-center md:text-5xl lg:text-6xl">About</h1>
             <div className="flex items-center flex-col md:mt-14 lg:mt-20">
                 <div className="text-center mb-20 max-w-3xl">
@@ -32,6 +43,7 @@ export function About() {
                     </p>
                 </div>
             </div>
+            <div style={{ height: 70 }} id="our-team" className="absolute bottom-0 left-0 w-full"></div>
         </section>
     );
 }

@@ -1,11 +1,12 @@
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { Fragment, useEffect, useState } from 'react';
+import { scroller } from 'react-scroll';
 import { useMediaQuery } from '../../../hooks/useMediaQuery';
+import useStore from '../../../store';
 import HamMenu from '../ham-menu/HamMenu';
 import Portal from '../portal/Portal';
 import styles from './navbar.module.css';
-import Link from 'next/link';
-import { Link as ScrollLink } from 'react-scroll';
-import { useRouter } from 'next/router';
 
 interface NavbarProps {}
 
@@ -14,32 +15,46 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
     onClick,
 }) => {
     const router = useRouter();
+    const visible = useStore((s) => s.visible);
     const links = [
         { name: 'Home', link: '/', section: true, to: 'home' },
         { name: 'About', link: '/', section: true, to: 'about' },
         { name: 'Events', link: '/events', section: false },
-        { name: 'Gallery', link: '/', section: false },
+        { name: 'Gallery', link: '/gallery', section: false },
         { name: 'Our Team', link: '/', section: true, to: 'our-team' },
         { name: 'Projects', link: '/projects', section: false },
-        { name: 'Others', link: '/', section: false },
+        { name: 'Others', link: '/others', section: false },
     ];
+
+    function showUnderline(link: string, name: string) {
+        if (visible === name && router.route === '/') {
+            return true;
+        }
+
+        if (router.route === link && router.route !== '/') {
+            return true;
+        }
+    }
+
+    async function goToLink(link: string, to: string = '') {
+        if (router.route !== '/') {
+            await router.push(link);
+        }
+        scroller.scrollTo(to, { duration: 800, smooth: 'easeInOutQuint' });
+    }
 
     return (
         <div className={`w-full ${smallerThan600px ? 'absolute py-5 bg-gray' : ''} ${styles.navLinks}`}>
             <ul className={`flex ${smallerThan600px ? 'flex-col items-center' : 'justify-center'}`}>
                 {links.map(({ name, link, section, to }, idx) => (
                     <button key={idx} onClick={onClick}>
-                        <li className={`mx-3 text-xl mb-1 relative`}>
+                        <li
+                            className={`mx-3 text-xl mb-1 relative ${
+                                showUnderline(link, name) ? 'border-b-4 border-brand' : ''
+                            }`}
+                        >
                             {section ? (
-                                <ScrollLink
-                                    to={to ? to : ''}
-                                    smooth={true}
-                                    spy={true}
-                                    duration={100}
-                                    onClick={() => router.push(link)}
-                                >
-                                    {name}
-                                </ScrollLink>
+                                <a onClick={async () => await goToLink(link, to)}>{name}</a>
                             ) : (
                                 <Link href={link}>{name}</Link>
                             )}
