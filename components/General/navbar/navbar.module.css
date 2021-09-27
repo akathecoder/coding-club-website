@@ -2,8 +2,21 @@
     height: 70px;
 }
 
+@keyframes slideDown {
+    0% {
+        top: 40px;
+    }
+    100% {
+        top: 50px;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .nav {
         height: 50px;
+    }
+
+    .navLinks {
+        animation: slideDown 0.3s ease-in forwards;
     }
 }

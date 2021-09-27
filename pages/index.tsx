@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { About } from '../components/Sections/About/About';
 import Hero from '../components/Sections/Hero/Hero';
 import OurTeam from '../components/Sections/Our-Team/our-team';
 import { OurTeam as IOurTeam } from '../types';
@@ -7,6 +8,7 @@ const Home: React.FC<IOurTeam> = (props) => {
     return (
         <>
             <Hero />
+            <About />
             <OurTeam {...props} />
         </>
     );
