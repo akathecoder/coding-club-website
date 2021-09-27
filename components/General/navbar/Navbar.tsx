@@ -4,6 +4,8 @@ import HamMenu from '../ham-menu/HamMenu';
 import Portal from '../portal/Portal';
 import styles from './navbar.module.css';
 import Link from 'next/link';
+import { Link as ScrollLink } from 'react-scroll';
+import { useRouter } from 'next/router';
 
 interface NavbarProps {}
 
@@ -11,23 +13,36 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
     smallerThan600px = false,
     onClick,
 }) => {
+    const router = useRouter();
     const links = [
-        { name: 'About', link: '!#' },
-        { name: 'Events', link: '/events' },
-        { name: 'Gallery', link: '!#' },
-        { name: 'Our Team', link: '!#' },
-        { name: 'Resources', link: '!#' },
-        { name: 'Projects', link: '/projects' },
-        { name: 'Others', link: '!#' },
+        { name: 'Home', link: '/', section: true, to: 'home' },
+        { name: 'About', link: '/', section: true, to: 'about' },
+        { name: 'Events', link: '/events', section: false },
+        { name: 'Gallery', link: '/', section: false },
+        { name: 'Our Team', link: '/', section: true, to: 'our-team' },
+        { name: 'Projects', link: '/projects', section: false },
+        { name: 'Others', link: '/', section: false },
     ];
 
     return (
         <div className={`w-full ${smallerThan600px ? 'absolute py-5 bg-gray' : ''} ${styles.navLinks}`}>
             <ul className={`flex ${smallerThan600px ? 'flex-col items-center' : 'justify-center'}`}>
-                {links.map(({ name, link }, idx) => (
+                {links.map(({ name, link, section, to }, idx) => (
                     <button key={idx} onClick={onClick}>
                         <li className={`mx-3 text-xl mb-1 relative`}>
-                            <Link href={link}>{name}</Link>
+                            {section ? (
+                                <ScrollLink
+                                    to={to ? to : ''}
+                                    smooth={true}
+                                    spy={true}
+                                    duration={100}
+                                    onClick={() => router.push(link)}
+                                >
+                                    {name}
+                                </ScrollLink>
+                            ) : (
+                                <Link href={link}>{name}</Link>
+                            )}
                         </li>
                     </button>
                 ))}

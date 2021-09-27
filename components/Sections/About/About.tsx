@@ -3,7 +3,7 @@ import styles from './about.module.css';
 
 export function About() {
     return (
-        <section className={`border-t border-accent6 px-10 md:px-20 ${styles.aboutSection}`}>
+        <section id="about" className={`border-t border-accent6 px-10 md:px-20 ${styles.aboutSection}`}>
             <h1 className="my-5 text-4xl text-center md:text-5xl lg:text-6xl">About</h1>
             <div className="flex items-center flex-col md:mt-14 lg:mt-20">
                 <div className="text-center mb-20 max-w-3xl">
