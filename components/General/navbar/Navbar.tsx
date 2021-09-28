@@ -55,7 +55,12 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
             } ${styles.navLinks}`}
         >
             {(visible === 'About' || visible === 'Our Team') && widerThan800px && (
-                <div className="flex items-center justify-center">
+                <div className={`flex items-center justify-center ${styles.icon}`}>
+                    <Image src={clubLogo} alt="university" width="50px" height="50px" />
+                </div>
+            )}
+            {router.route !== '/' && (
+                <div className={`flex items-center justify-center ${styles.icon}`}>
                     <Image src={clubLogo} alt="university" width="50px" height="50px" />
                 </div>
             )}
@@ -78,7 +83,12 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
             </ul>
 
             {(visible === 'About' || visible === 'Our Team') && !smallerThan600px && (
-                <div>
+                <div className={`${styles.joinButton}`}>
+                    <button className="bg-brand px-4 py-1 rounded-md">Join Club</button>
+                </div>
+            )}
+            {router.route !== '/' && (
+                <div className={`${styles.joinButton}`}>
                     <button className="bg-brand px-4 py-1 rounded-md">Join Club</button>
                 </div>
             )}
