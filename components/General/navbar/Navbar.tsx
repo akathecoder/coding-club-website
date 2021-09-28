@@ -18,6 +18,7 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
 }) => {
     const router = useRouter();
     const visible = useStore((s) => s.visible);
+    const widerThan800px = useMediaQuery('(min-width: 800px)');
     const setVisibleSection = useStore((s) => s.setVisibleSection);
 
     const links = [
@@ -53,7 +54,7 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
                 smallerThan600px ? 'absolute py-5 bg-gray' : ''
             } ${styles.navLinks}`}
         >
-            {(visible === 'About' || visible === 'Our Team') && !smallerThan600px && (
+            {(visible === 'About' || visible === 'Our Team') && widerThan800px && (
                 <div className="flex items-center justify-center">
                     <Image src={clubLogo} alt="university" width="50px" height="50px" />
                 </div>
@@ -86,7 +87,8 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
 };
 
 const Navbar: React.FC<NavbarProps> = () => {
-    const smallerThan600px = useMediaQuery('(max-width: 600px)');
+    const smallerThan600px = useMediaQuery('(max-width: 745px)');
+
     const [open, setOpen] = useState<boolean>(false);
     const visible = useStore((s) => s.visible);
 
@@ -116,7 +118,7 @@ const Navbar: React.FC<NavbarProps> = () => {
             <nav
                 className={`fixed w-full z-30 top-0 ${
                     smallerThan600px && open
-                        ? 'z-20 left-0 right-0 fixed flex justify-end items-center'
+                        ? 'z-20 left-0 right-0 fixed flex justify-end items-center border-b-2 border-accent5'
                         : 'flex justify-end items-center'
                 } ${styles.nav} bg-gray`}
             >
@@ -148,7 +150,7 @@ const Navbar: React.FC<NavbarProps> = () => {
                 <Portal selector="backdrop">
                     {open && smallerThan600px && (
                         <div
-                            className="absolute w-full h-screen bg-gray left-0 right-0 z-10 opacity-90"
+                            className={`absolute w-full h-screen bg-gray left-0 right-0 z-10 opacity-60 ${styles.backdrop}`}
                             onClick={closeNavLinks}
                             style={{ top: window.scrollY }}
                         ></div>
