@@ -1,11 +1,26 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import Logo from '../../../assets/images/logo.svg';
 import styles from './hero.module.css';
+import useStore from '../../../store';
 
 function Hero() {
+    const { ref, inView } = useInView({ threshold: 0.9 });
+    const setSection = useStore((s) => s.setVisibleSection);
+
+    useEffect(() => {
+        if (inView) {
+            setSection('Home');
+        }
+    }, [inView, setSection]);
+
     return (
-        <section className={`flex flex-col justify-center bg-background px-3 ${styles.homeContainer}`}>
+        <section
+            ref={ref}
+            className={`flex flex-col justify-center relative bg-background px-3 ${styles.homeContainer}`}
+        >
+            <div style={{ height: 70, top: -140 }} id="home" className="absolute left-0 w-full"></div>
             <figure className={`text-center my-5 ${styles.logoContainer}`}>
                 <Image src={Logo} alt="coding club logo" aria-readonly="true" />
             </figure>
@@ -39,6 +54,7 @@ function Hero() {
                     </p>
                 </div>
             </div>
+            <div style={{ height: 70 }} id="about" className="absolute bottom-0 left-0 w-full"></div>
         </section>
     );
 }
