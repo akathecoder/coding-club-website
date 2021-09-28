@@ -1,8 +1,15 @@
 import fs from 'fs';
+import { useEffect } from 'react';
 import { ProjectItem } from '../components/General/ProjectItem/ProjectItem';
+import useStore from '../store';
 import { ProjectsData } from '../types';
 
 const Projects: React.FC<ProjectsData> = (props) => {
+    const setSection = useStore((s) => s.setVisibleSection);
+
+    useEffect(() => {
+        setSection('Projects');
+    }, [setSection]);
     return (
         <>
             <main className="bg-background min-w-full min-h-screen text-accent1">

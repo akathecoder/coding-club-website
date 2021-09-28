@@ -1,9 +1,16 @@
 import fs from 'fs';
+import { useEffect } from 'react';
 import Event from '../components/General/event/Event';
+import useStore from '../store';
 import styles from '../styles/events.module.css';
 import { EventsData } from '../types';
 
 function Events({ events }: EventsData) {
+    const setSection = useStore((s) => s.setVisibleSection);
+
+    useEffect(() => {
+        setSection('Events');
+    }, [setSection]);
     return (
         <section className={`bg-background flex items-center flex-col ${styles.eventsContainer}`}>
             <header className="py-10">
