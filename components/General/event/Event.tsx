@@ -15,7 +15,7 @@ function Event(event: EventType) {
             </div>
             <p>{event.description}</p>
             <button
-                className="bg-white text-black px-5 py-1 rounded-full my-2"
+                className="bg-white text-black px-5 py-1 rounded-full my-2 transform transition hover:scale-105 duration-500"
                 onClick={() => router.push(event.link || '!#')}
             >
                 More Info
