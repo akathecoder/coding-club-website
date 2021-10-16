@@ -26,8 +26,8 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
         { name: 'About', link: '/', section: true, to: 'about' },
         { name: 'Events', link: '/events', section: false },
         { name: 'Our Team', link: '/', section: true, to: 'our-team' },
-        { name: 'Projects', link: '/projects', section: false },
-        { name: 'Others', link: '/others', section: false },
+        // { name: 'Projects', link: '/projects', section: false },
+        // { name: 'Others', link: '/others', section: false },
     ];
 
     function showUnderline(link: string, name: string) {
