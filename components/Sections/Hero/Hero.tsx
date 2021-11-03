@@ -4,10 +4,21 @@ import { useInView } from 'react-intersection-observer';
 import Logo from '../../../assets/images/logo.svg';
 import styles from './hero.module.css';
 import useStore from '../../../store';
+import { useRouter } from 'next/router';
+import { scroller } from 'react-scroll';
 
 function Hero() {
+    const router = useRouter();
     const { ref, inView } = useInView({ threshold: 0.9 });
     const setSection = useStore((s) => s.setVisibleSection);
+
+    async function goToLink(link: string, to: string = '', name: string) {
+        if (router.route !== '/') {
+            await router.push(link);
+        }
+        scroller.scrollTo(to, { duration: 800, smooth: 'easeInOutQuint' });
+        setSection(name);
+    }
 
     useEffect(() => {
         if (inView) {
@@ -48,7 +59,7 @@ function Hero() {
                 <div className="my-8 text-md">
                     <p>
                         Learn more about us{' '}
-                        <a href="!#" className="underline">
+                        <a className="underline" onClick={async () => await goToLink('/', 'about', 'About')}>
                             here
                         </a>
                     </p>

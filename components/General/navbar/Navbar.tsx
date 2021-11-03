@@ -26,8 +26,8 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
         { name: 'About', link: '/', section: true, to: 'about' },
         { name: 'Events', link: '/events', section: false },
         { name: 'Our Team', link: '/', section: true, to: 'our-team' },
-        { name: 'Projects', link: '/projects', section: false },
-        { name: 'Others', link: '/others', section: false },
+        // { name: 'Projects', link: '/projects', section: false },
+        // { name: 'Others', link: '/others', section: false },
     ];
 
     function showUnderline(link: string, name: string) {
@@ -59,7 +59,7 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
                     <Image src={clubLogo} alt="university" width="50px" height="50px" />
                 </div>
             )}
-            {router.route !== '/' && (
+            {router.route !== '/' && !smallerThan600px && (
                 <div className={`flex items-center justify-center ${styles.icon}`}>
                     <Image src={clubLogo} alt="university" width="50px" height="50px" />
                 </div>
@@ -87,7 +87,7 @@ const NavLinksList: React.FC<{ smallerThan600px?: boolean; onClick?: () => void 
                     <button className="bg-brand px-4 py-1 rounded-md">Join Club</button>
                 </div>
             )}
-            {router.route !== '/' && (
+            {router.route !== '/' && !smallerThan600px && (
                 <div className={`${styles.joinButton}`}>
                     <button className="bg-brand px-4 py-1 rounded-md">Join Club</button>
                 </div>

@@ -20,27 +20,26 @@ export function About() {
                 <div className="text-center mb-20 max-w-3xl">
                     <h2 className="text-2xl border-b-4 border-brand inline-block md:text-3xl lg:text-4xl">Vision</h2>
                     <p className="text-lg text-justify mt-3 md:text-xl lg:text-2xl">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur sunt, adipisci nisi explicabo
-                        aspernatur quaerat a. Tenetur odit cum sit totam itaque laborum saepe quas ipsum vero, ex
-                        dignissimos ipsa!
+                        We believe that everyone has the opportunity to learn to code, regardless of who they are or
+                        what branch/institute they come from. We believe in learning by doing, and through our coding
+                        projects, people can be creative and share their creations with one another. At Coding Club, we
+                        believe that all children, no matter who they are or where they come from, should have the
+                        opportunity to learn to code.
                     </p>
                 </div>
 
                 <div className="text-center mb-20 max-w-3xl">
                     <h2 className="text-2xl border-b-4 border-brand inline-block md:text-3xl lg:text-4xl">Mission</h2>
                     <p className="text-lg text-justify mt-3 md:text-xl lg:text-2xl">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem, placeat porro voluptas
-                        praesentium explicabo soluta excepturi corrupti! Quia, aut ab!
+                        We have a community that grows together, so an engineering student without coding skills is like
+                        a warrior without a sword. Students in this environment will share their ideas and projects with
+                        and learn around each other.
                     </p>
                 </div>
 
                 <div className="text-center mb-20 max-w-3xl">
                     <h2 className="text-2xl border-b-4 border-brand inline-block md:text-3xl lg:text-4xl">Values</h2>
-                    <p className="text-lg text-justify mt-3 md:text-xl lg:text-2xl">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus quidem tempora sit laudantium
-                        perferendis voluptate aspernatur architecto repudiandae placeat nostrum quaerat dolores,
-                        voluptas corporis assumenda!
-                    </p>
+                    <p className="text-lg text-justify mt-3 md:text-xl lg:text-2xl">Learn | Inspire | Grow | Conquer</p>
                 </div>
             </div>
             <div style={{ height: 70 }} id="our-team" className="absolute bottom-0 left-0 w-full"></div>
